@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="hub-preview-revision" content="static-header-v4">
+  <meta name="description" content="Pick a course. Try something new. Learn at your own pace.">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; font-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <title>io Tech Learning Hub</title>
+  <link rel="icon" href="./assets/io-tech-center-logo.png" type="image/png">
+  <link rel="stylesheet" href="./styles.css">
+  <script defer src="./courses.js"></script>
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#courses">Skip to courses</a>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="io Tech Learning Hub home">
+        <img class="brand-logo" src="./assets/io-tech-center-logo.png" width="1383" height="742" alt="io Tech Learning Center — Explore. Create. Grow." decoding="async">
+      </a>
+      <section class="contact-info" id="contact-info" aria-labelledby="visit-title">
+        <h2 id="visit-title" class="contact-title">Visit Us</h2>
+        <address class="contact-address"><span>1647 Bath Ave</span><span>Brooklyn, NY 11214</span></address>
+        <a class="phone-link" href="tel:+17183745518">(718) 374-5518</a>
+        <div class="contact-actions">
+          <a class="directions-link" href="https://www.google.com/maps/search/?api=1&amp;query=1647%20Bath%20Ave%2C%20Brooklyn%2C%20NY%2011214" aria-label="Get directions to io Tech Learning Center">Get Directions</a>
+          <a class="header-link" href="#courses">Courses</a>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">io Tech Learning Hub</p>
+          <h1 id="page-title">What will you <span>explore today?</span></h1>
+          <p class="hero-lead">Pick a course. Try something new. Learn at your own pace.</p>
+        </div>
+        <div class="exploration" aria-hidden="true">
+          <span class="shape shape-blue"></span>
+          <span class="shape shape-orange"></span>
+          <span class="shape shape-green"></span>
+          <span class="shape shape-ring"></span>
+          <span class="shape shape-dash"></span>
+        </div>
+      </section>
+
+      <section id="courses" class="courses-section" aria-labelledby="courses-title" tabindex="-1">
+        <div class="section-heading">
+          <div><p class="eyebrow" lang="en">FIND A COURSE</p><h2 id="courses-title">Our courses</h2></div>
+          <p class="course-count" id="course-count" aria-live="polite"></p>
+        </div>
+        <p class="navigation-note">Choose a button to open a course in this tab.</p>
+        <ul class="course-grid" id="course-grid" aria-label="All courses"></ul>
+        <p id="course-error" class="error-notice" role="status" hidden>We could not show the courses. Please refresh the page to try again.</p>
+        <noscript><p class="error-notice">Turn on JavaScript in your browser to see the courses.</p></noscript>
+      </section>
+    </main>
+
+    <footer class="site-footer"><p>io Tech Center <span>Keep exploring. Every small step helps you learn.</span></p><p>io Tech Learning Hub</p></footer>
+  </div>
+</body>
+</html>

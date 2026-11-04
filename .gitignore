@@ -1,0 +1,11 @@
+.DS_Store
+node_modules/
+.env
+.env.*
+*.log
+*.tmp
+private/
+
+# Source artwork and local working records are not release assets.
+assets/*-original.*
+.local/
