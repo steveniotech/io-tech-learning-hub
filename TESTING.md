@@ -29,3 +29,7 @@ The agent environment blocks loopback connections and listeners with EPERM; the 
 There is no separate completed audit of screen readers, all physical devices, or every external course's availability. The hub preserves the approved course destinations and does not poll those sites. The hub does not implement shared login, progress synchronization or teacher management.
 
 Publication requires separate confirmation that GitHub Pages deployed the intended commit and that the production page and its assets load. Those results belong in `RELEASE.md`; pushing Git is not treated as a completed online check.
+
+## Production verification — 2026-11-04
+
+Pages deployment for content commit `d1c7c0a` succeeded. The production page, logo, stylesheet and both JavaScript files returned 200 in Chrome Network. The logo and public contacts displayed correctly, all seven course targets matched the approved catalog, and desktop plus 375 × 812 responsive layouts were visually checked. No application JavaScript errors or failed runtime assets were observed; hosting Permissions-Policy compatibility warnings were non-blocking. See `RELEASE.md` for the deployment link and limits.

@@ -33,8 +33,8 @@ The last command needs the running local preview. It checks that live HTML match
 
 ## GitHub Pages
 
-Target repository: `steveniotech/io-tech-learning-hub`.
-Target site: https://steveniotech.github.io/io-tech-learning-hub/.
+Public repository: `steveniotech/io-tech-learning-hub`.
+Published site: https://steveniotech.github.io/io-tech-learning-hub/.
 
 Publish this independent repository from `main` / `/(root)` using GitHub Pages. `.nojekyll` permits direct static hosting. The runtime consists of `index.html`, `styles.css`, `courses.js`, `app.js`, and `assets/io-tech-center-logo.png`; all asset paths are relative. There is no generated `dist` directory or custom build workflow.
 
