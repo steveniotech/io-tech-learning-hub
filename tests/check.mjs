@@ -18,12 +18,13 @@ const expected=[
  ['Builder Island','3D Design','https://steveniotech.github.io/builder-island/'],
  ['mBot Robotics','Robotics','https://iotechcentermbotpractice.netlify.app/#level-3'],
  ['Snap Circuits','Circuits','https://iocentersnapcircuitspractice.netlify.app/#learn'],
- ['Terminal Steps Lab','Computer Skills','https://steveniotech.github.io/terminal-steps-lab/']
+ ['Terminal Steps Lab','Computer Skills','https://steveniotech.github.io/terminal-steps-lab/'],
+ ['Arduino Learning Studio','Circuits','https://sensational-flan-9fcf8b.netlify.app/']
 ];
-assert.equal(courses.length,7);assert.equal(new Set(courses.map(c=>c.id)).size,7);
+assert.equal(courses.length,8);assert.equal(new Set(courses.map(c=>c.id)).size,8);
 assert.deepEqual([...courses].sort((a,b)=>a.order-b.order).map(c=>[c.name,c.category,c.url]),expected);
-console.log('PASS: exactly 7 unique courses; names, categories and complete URLs match the supplied list.');
-const expectedCopy=[['Review coding ideas with short practice activities.', 'Start Learning'], ['Write Python code and build your skills, one step at a time.', 'Start Coding'], ['Practice reading and understanding what you read.', 'Start Reading'], ['Explore shapes and practice your 3D design skills.', 'Start Building'], ['Practice coding for your mBot robot.', 'Explore Robots'], ['Explore circuits and practice your electronics skills.', 'Explore Circuits'], ['Learn to use the terminal, one command at a time.', 'Try the Terminal']];
+console.log('PASS: exactly 8 unique courses; names, categories and complete URLs match the supplied list.');
+const expectedCopy=[['Review coding ideas with short practice activities.', 'Start Learning'], ['Write Python code and build your skills, one step at a time.', 'Start Coding'], ['Practice reading and understanding what you read.', 'Start Reading'], ['Explore shapes and practice your 3D design skills.', 'Start Building'], ['Practice coding for your mBot robot.', 'Explore Robots'], ['Explore circuits and practice your electronics skills.', 'Explore Circuits'], ['Learn to use the terminal, one command at a time.', 'Try the Terminal'], ['Explore Arduino Essentials (Level 1, 6 lessons) and Circuits, Displays & Smart Systems (Level 2, 13 lessons).', 'Explore Arduino']];
 assert.deepEqual(courses.map(c=>[c.description,c.button]),expectedCopy);
 
 class Element {
@@ -36,7 +37,7 @@ class Element {
 const elements=new Map(['course-grid','course-count','course-error','contact-info'].map(id=>[id,new Element('div')]));
 const document={createElement:tag=>new Element(tag),createElementNS:(_,tag)=>new Element(tag),createDocumentFragment:()=>new Element('fragment'),getElementById:id=>elements.get(id)};
 renderCourses(document,[...courses].reverse());
-let grid=elements.get('course-grid');assert.equal(grid.children.length,7);
+let grid=elements.get('course-grid');assert.equal(grid.children.length,8);
 for(const [index,item] of grid.children.entries()){
  const card=item.children[0],link=card.children.at(-1);
  assert.equal(card.dataset.course,courses[index].id);assert.equal(link.tagName,'a');
@@ -45,12 +46,12 @@ for(const [index,item] of grid.children.entries()){
  assert.equal(link.children[0].textContent,courses[index].button);
  assert.equal(card.children[2].textContent,expected[index][0]);
 }
-renderCourses(document,courses);assert.equal(grid.children.length,7,'Rerender must not duplicate cards');
+renderCourses(document,courses);assert.equal(grid.children.length,8,'Rerender must not duplicate cards');
 assert.throws(()=>renderCourses(document,[{...courses[0],url:'javascript:alert(1)'}]));
 assert.throws(()=>renderCourses(document,[courses[0],courses[0]]));
 const startup=vm.createContext({document,LearningCourses:courses,URL});
 vm.runInContext(fs.readFileSync(path.join(root,'app.js'),'utf8'),startup);
-assert.equal(grid.children.length,7);assert.equal(elements.get('course-error').hidden,true);
+assert.equal(grid.children.length,8);assert.equal(elements.get('course-error').hidden,true);
 vm.runInNewContext(fs.readFileSync(path.join(root,'app.js'),'utf8'),{document,URL});
 assert.equal(elements.get('course-error').hidden,false,'Missing configuration gives a visible error');
 console.log('PASS: shipped rendering, sorting, same-tab accessible anchors, duplicate prevention and invalid-catalog handling.');
